@@ -1,0 +1,59 @@
+/******************************************************************************
+Struct  Média aluno
+
+Rafael Mello 26/09
+
+*******************************************************************************/
+#include <stdio.h>
+#define QTD 10
+
+
+ float calculamedia( float N1, float N2)
+{
+    float md;
+    md = (N1 + N2)/2;
+    return (md);
+}
+
+
+int main() {
+    
+ int i;
+    
+    struct Aluno{
+             int matricula;
+             float N1;
+             float N2;
+             float media;
+    };
+    struct Aluno aluno[QTD];
+    
+
+    
+       printf( "DADOS DO ALUNO \n\n");
+       for(i=0;i<QTD;i++) {
+       printf( "Matrícula do aluno: ");
+       scanf ("%d" ,&aluno[i].matricula);
+       printf( "Nota N1: ");
+       scanf ("%f", &aluno[i].N1);
+       printf( "Nota N2: ");
+       scanf ("%f", &aluno[i].N2);
+       printf ("\n");
+       aluno[i].media = calculamedia(aluno[i].N1,aluno[i].N2);
+       }
+    
+  
+        for(i=0;i<QTD;i++) {
+        printf( "\nBOLETIM DO ALUNO %d \n", aluno[i].matricula);
+        printf( "\nNota N1: %.1f", aluno[i].N1);
+        printf( "\nNota N2: %.1f", aluno[i].N2);
+        printf( "\nMedia..: %.1f", aluno[i].media);
+        }
+        
+        printf(" \n\n Quantidade de alunos: %d", QTD);
+        
+       return (0);
+}
+
+
+
