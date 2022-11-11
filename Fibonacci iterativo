@@ -1,0 +1,43 @@
+/**********************************************************
+
+Recursividade - Fibonacci 
+
+Rafael Mello
+
+*********************************************************/
+#include <stdio.h>
+
+int fib (int n) {
+   
+    int i =0, j=1, k;
+   
+    if (n==0) return 0;
+    if (n==1) return 1;
+     
+    while (n>=2) {
+        k = i+j;
+        i = j;
+        j = k;
+       
+        n--;
+    }
+   
+    return k;
+
+}
+
+int main()
+{
+    int aux, n;
+   
+    printf("Digite o valor de n: ");
+    scanf ("%d", &n);
+   
+    aux = fib(n);
+   
+    printf ("\n\nO valor retornado é %d", aux);
+
+    return 0;
+}
+
+
