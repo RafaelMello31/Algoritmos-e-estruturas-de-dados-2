@@ -1,0 +1,81 @@
+/**********************************************************
+Exercício BANDA pt.2
+
+Rafael Mello
+
+*********************************************************/
+
+
+#include <stdio.h>
+#include <string.h>
+#include <locale.h>    
+#define TAM 3
+
+typedef struct banda {
+char nome[50];
+char estilo[50];
+int integrantes;
+int rank;
+} BANDA;
+
+void leBanda (BANDA *v) {
+setlocale(LC_ALL, "Portuguese");
+
+  for(int i=0; i<TAM; i++){
+  
+printf("\nPor favor insira os dados abaixo: \n");
+  printf("Nome da banda: ");
+  scanf("%s", v[i].nome);
+  printf("Estilo musical: ");
+  scanf("%s", v[i].estilo);
+  printf("Número de integrantes: ");
+  scanf("%d", &v[i].integrantes);
+  printf("Rank da banda: ");
+  scanf("%d", &v[i].rank);
+    }
+}
+
+void exibeBanda (BANDA *x) {
+  setlocale(LC_ALL, "Portuguese");
+
+    for(int i=0; i<TAM; i++){
+      
+  printf("Informações da banda:  \n");
+    printf("Nome: %s \n", x[i].nome);
+    printf("Estilo: %s \n", x[i].estilo);
+    printf("Número de integrantes: %d \n", x[i].integrantes);
+    printf("Rank da banda: %d \n", x[i].rank);
+  }
+        
+}
+
+void pesquisaBanda (BANDA *y) {
+  char aux[50];
+  int achou = 0;
+
+  printf("\n Informe seu estilo musical: ");
+  scanf("%s", aux);
+
+  for(int i = 0; i<TAM; i++) {
+    if(strcmp(y[i].estilo, aux)==0) {
+      achou = 1;
+      printf("\n Banda: %s", y[i].nome);
+    }
+  }
+  if(achou) 
+    printf("\n Banda localizada!");
+  else 
+    printf("\n Banda ausente!");
+}
+
+int main() {
+  setlocale(LC_ALL, "Portuguese");
+  
+  BANDA v[TAM];
+  leBanda (v);
+  pesquisaBanda(v);
+  printf("\n\nInformações de todas as bandas: \n\n");
+  exibeBanda (v);
+  return 0;
+}
+
