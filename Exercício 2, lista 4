@@ -1,0 +1,64 @@
+/**********************************************************
+Lista 4, exercício 2
+
+Rafael Mello
+
+*********************************************************/
+
+
+#include <stdio.h>
+#include <string.h>
+#include <locale.h>
+#define TAM 5
+
+typedef struct pessoa {
+char nome[50];
+int idade;
+float peso;
+float altura;
+float imc;
+} PESSOA;
+
+void lePessoa (PESSOA *v){
+  printf("\nPor gentileza, preencha os dados que se pedem abaixo: \n");
+  for(int i=0;i<TAM;i++){
+  printf("\nNome: ");
+  scanf("%s", v[i].nome);
+  printf("Idade: ");
+  scanf("%d", &v[i].idade);
+  printf("Peso: ");
+  scanf("%f", &v[i].peso);
+  printf("Altura (em metro): ");
+  scanf("%f", &v[i].altura);
+  }
+}
+
+void calculaIMC (PESSOA *x){
+for(int i=0;i<TAM;i++){
+  x[i].imc =x[i].peso / (x[i].altura * x[i].altura);
+}
+  }
+
+void exibePessoa (PESSOA *y) {
+  setlocale (LC_ALL, "Portuguese");
+  
+  printf("\nInformações das pessoas: \n");
+  calculaIMC(y);
+  for(int i=0;i<TAM;i++){
+    printf("\nNome: %s ", y[i].nome);
+    printf("Idade: %d ", y[i].idade);
+    printf("Peso: %.2f ", y[i].peso);
+    printf("Altura: %.2f ", y[i].altura);
+    printf("IMC: %.2f ", y[i].imc);
+  }
+}
+
+int main(){
+  PESSOA v[TAM];
+  lePessoa(v);
+  exibePessoa(v);
+  return 0;
+}
+  
+
+
