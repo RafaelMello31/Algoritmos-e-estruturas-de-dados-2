@@ -1,0 +1,60 @@
+/**********************************************************
+Exercício BANDA pt1
+
+Rafael Mello
+
+*********************************************************/
+
+
+#include <stdio.h>
+#include <locale.h>    
+#define TAM 3
+
+typedef struct banda {
+char nome[50];
+char estilo[50];
+int integrantes;
+int rank;
+} BANDA;
+
+void leBanda (BANDA *v) {
+setlocale(LC_ALL, "Portuguese");
+
+  for(int i=0; i<TAM; i++){
+  
+printf("\nPor favor insira os dados abaixo: \n");
+  printf("Nome da banda: ");
+  scanf("%s", v[i].nome);
+  printf("Estilo musical: ");
+  scanf("%s", v[i].estilo);
+  printf("Número de integrantes: ");
+  scanf("%d", &v[i].integrantes);
+  printf("Rank da banda: ");
+  scanf("%d", &v[i].rank);
+    }
+}
+
+void exibeBanda (BANDA *x) {
+  setlocale(LC_ALL, "Portuguese");
+
+    for(int i=0; i<TAM; i++){
+      
+  printf("Informações da banda:  \n");
+    printf("Nome: %s \n", x[i].nome);
+    printf("Estilo: %s \n", x[i].estilo);
+    printf("Número de integrantes: %d \n", x[i].integrantes);
+    printf("Rank da banda: %d \n", x[i].rank);
+  }
+        
+}
+
+int main() {
+  setlocale(LC_ALL, "Portuguese");
+  
+  BANDA v[TAM];
+  leBanda (v);
+  printf("Informações de todas as bandas: \n\n");
+  exibeBanda (v);
+  return 0;
+}
+
