@@ -1,0 +1,46 @@
+/**********************************************************
+
+Exercício aula 29/08 - IDADE 
+
+Rafael Mello
+
+*********************************************************/
+#include <stdio.h>
+
+int leIdade () {
+    
+    int i;
+    printf ("Digite uma idade:");
+    scanf ("%d", &i);
+    
+    while (i<0 || i>110) {
+         printf ("Idade invalida, digite novamente");
+         scanf ("%d", &i);
+    }
+
+    return i;
+}
+
+int main() {
+    
+    int i, id1, id2, dif;
+    
+    id1 = leIdade();
+    id2 = leIdade();
+    dif = id1-id2;
+    
+    if (id1>id2) {
+    printf ("Diferença entre as idades é de: %d", dif);
+    }
+    else {
+        dif = dif * -1;
+        printf ("Diferença entre as idades é de: %d", dif);
+    }
+    
+    return 0;
+   
+   }
+
+
+
+
