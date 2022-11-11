@@ -1,0 +1,65 @@
+/**********************************************************
+Exercício 1, lista 4
+
+Rafael Mello
+
+*********************************************************/
+
+
+#include <stdio.h>
+#include <string.h>
+#include <locale.h>
+#define TAM 3
+
+
+typedef struct aluno {
+int matricula;
+char nome[50];
+float n1;
+float n2;
+float media;
+} ALUNO;
+
+void leAluno (ALUNO *v) {
+  setlocale (LC_ALL, "Portuguese");
+  
+  printf("\nEntre com os dados do aluno: \n");
+  for(int i=0;i<TAM;i++){
+  printf("\nMatrícula do aluno: ");
+  scanf("%d", &v[i].matricula);
+  printf("Nome do aluno: ");
+  scanf("%s", v[i].nome);
+  printf("Valor obtido na N1: ");
+  scanf("%f", &v[i].n1);
+  printf("Valor obtido na N2: ");
+  scanf("%f", &v[i].n2);
+}
+  }
+
+void mediaAluno(ALUNO *y){
+  for(int i=0; i<TAM;i++){
+    y[i].media = (y[i].n1 + y[i].n2)/2;
+  }
+}
+
+void exibeAluno (ALUNO *x){
+  setlocale (LC_ALL, "Portuguese");
+  mediaAluno(x);
+  for(int i=0;i<TAM;i++){
+  printf("\nDados dos alunos: \n");
+  printf("\nMatrícula: %d", x[i].matricula);
+  printf("\nNome: %s", x[i].nome);
+  printf("\nN1: %.2f", x[i].n1);
+  printf("\nN2: %.2f", x[i].n2);
+  printf("\nMédia: %.2f", x[i].media);
+} 
+  }
+
+  
+int main () {
+ALUNO v[TAM];
+leAluno(v);
+exibeAluno(v);
+return 0;  
+}
+
