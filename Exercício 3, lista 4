@@ -1,0 +1,46 @@
+/**********************************************************
+Lista 4, exercício 3
+
+Rafael Mello
+
+*********************************************************/
+
+#include <stdio.h>
+#include <string.h>
+#include <locale.h>
+#define TAM 3
+
+typedef struct Produto {
+  char nome[50];
+  float preco;
+  char codigo[10];
+} PRODUTO;
+
+void leProduto (PRODUTO *v) {
+  printf("\nEntre com as informações dos produtos: \n");
+  for(int i=0;i<TAM;i++) {
+    printf("\nNome: ");
+    scanf("%s",v[i].nome);
+    printf("Código: ");
+    scanf("%s",v[i].codigo);
+    printf("Preço: ");
+    scanf("%f", &v[i].preco);
+  }
+}
+
+void exibeProduto (PRODUTO *x) {
+  printf("\nInformações dos produtos cadastrados: \n");
+  for(int i=0;i<TAM;i++){
+    printf("\nNome: %s\n", x[i].nome);
+    printf("Código: %s\n", x[i].codigo);
+    printf("Preço: R$%.2f\n", x[i].preco);
+  }
+}
+
+int main (){
+  PRODUTO v[TAM];
+  leProduto(v);
+  exibeProduto(v);
+  return 0;
+}
+
